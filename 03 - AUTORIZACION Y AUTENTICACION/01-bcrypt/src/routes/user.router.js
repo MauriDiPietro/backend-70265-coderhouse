@@ -14,12 +14,16 @@ router.post("/register", async (req, res) => {
 });
 
 router.post("/login", async (req, res) => {
-  const { email, password } = req.body;
-  const user = await userManager.login(email, password);
-  if (user) {
-    req.session.email = email;
-    res.render("home");
-  } else res.redirect("error", { message: "credenciales incorrectas" });
+  try {
+    const { email, password } = req.body;
+    const user = await userManager.login(email, password);
+    if (user) {
+      req.session.email = email;
+      res.render("home");
+    }
+  } catch (error) {
+    res.render("error", { error });
+  }
 });
 
 export default router;
