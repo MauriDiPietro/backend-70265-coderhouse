@@ -22,15 +22,11 @@ export const register = async (user) => {
     const { email, password, isGithub } = user;
     const existUser = await getUserByEmail(email);
     if (existUser) throw new Error("User already exists");
-    if (isGithub) {
-      const newUser = await userDao.register(user);
-      return newUser;
-    }
-    const newUser = await userDao.register({
+    if (isGithub) return await userDao.register(user);
+    return await userDao.register({
       ...user,
       password: createHash(password),
     });
-    return newUser;
   } catch (error) {
     throw new Error(error);
   }
