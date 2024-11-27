@@ -8,7 +8,7 @@ class UserController extends Controllers {
 
   register = async (req, res, next) => {
     try {
-      const user = await this.services.register(req.body);
+      const user = await this.service.register(req.body);
       res.json(user);
     } catch (error) {
       next(error);
@@ -17,7 +17,7 @@ class UserController extends Controllers {
   
   login = async (req, res, next) => {
     try {
-      const token = await this.services.login(req.body);
+      const token = await this.service.login(req.body);
       // res.header("Authorization", token).json({ message: "Login OK" });
       res.cookie('token', token, { httpOnly: true }).json({ message: 'Login OK' });
     } catch (error) {
@@ -37,4 +37,6 @@ class UserController extends Controllers {
     }
   };
 }
+
+export const userController = new UserController();
 

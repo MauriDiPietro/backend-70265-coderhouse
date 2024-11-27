@@ -1,20 +1,18 @@
 import { Router } from "express";
 import {
-  register,
-  login,
-  privateData,
+  userController,
 } from "../controllers/user.controller.js";
 import { checkAuthCookies, checkAuthHeaders } from "../middlewares/checkAuth.js";
 
 const router = Router();
 
-router.post("/register", register);
+router.post("/register", userController.register);
 
-router.post("/login", login);
+router.post("/login", userController.login);
 
-router.get("/private-headers", checkAuthHeaders, privateData);
+router.get("/private-headers", checkAuthHeaders, userController.privateData);
 
-router.get("/private-cookies", checkAuthCookies, privateData);
+router.get("/private-cookies", checkAuthCookies, userController.privateData);
 
 
 
