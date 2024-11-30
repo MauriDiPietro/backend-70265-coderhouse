@@ -19,7 +19,7 @@ class UserController extends Controllers {
     try {
       const token = await this.service.login(req.body);
       res
-        // .cookie('token', token, { httpOnly: true })
+        .cookie('token', token, { httpOnly: true })
         .json({ message: 'Login OK', token });
     } catch (error) {
       next(error);
