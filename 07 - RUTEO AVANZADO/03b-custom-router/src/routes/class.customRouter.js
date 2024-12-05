@@ -44,7 +44,6 @@ export default class Router {
       if(roles[0] === 'PUBLIC') return next();
       const token = req.cookies.token;
       const user = jwt.verify(token, process.env.SECRET_KEY);
-      // console.log(req.user)
       if(!roles.includes(user.role.toUpperCase())) return res.status(403).send({ msg: 'Unauthorized' });
       req.user = user;
       next()
