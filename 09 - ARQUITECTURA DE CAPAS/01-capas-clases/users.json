@@ -1,0 +1,10 @@
+[
+  {
+    "id": 1,
+    "first_name": "Juan",
+    "last_name": "Di Pietro",
+    "email": "dipietro.jm@mail.com",
+    "age": 40,
+    "password": "$2b$10$Ivpfx0PCJOaXXmS1rmrW5OKZopszRaaBDhzwH6Sn1DRFHd53gLs02"
+  }
+]
