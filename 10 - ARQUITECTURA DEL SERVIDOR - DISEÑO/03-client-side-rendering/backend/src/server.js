@@ -7,7 +7,7 @@ import cors from "cors";
 
 const app = express();
 
-// app.use(cors({ origin: 'http://localhost:5173', credentials: true }))
+// app.use(cors({ origin: ['http://localhost:5173', 'https://www.coderhouse.com'], credentials: true }))
 app.use(cors({
     origin: "*",
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
